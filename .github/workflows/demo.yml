@@ -26,12 +26,12 @@ jobs:
       - name: Build website
         run: npm run build
       - name: Upload artifacts
-        run : actions/upload-artifact@v3
+        run : actions/upload-artifact@v4
         with:
           name: dist-files
           path: |
             dist
-            package.json
+            !dist/**/*.md
             
   deploy:
     needs: build
